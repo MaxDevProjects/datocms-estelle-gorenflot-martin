@@ -6,7 +6,6 @@
 </script>
 
 <div class="min-h-screen">
-	<Alert />
 	<main>
 		<slot />
 	</main>

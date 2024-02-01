@@ -8,7 +8,7 @@
 
 	export let node: Block;
 
-	node;
+	node;	
 </script>
 
 {#if block?.__typename === 'ImageBlockRecord'}

@@ -8,7 +8,6 @@
 	import Block from './StructuredText/nodes/Block.svelte';
 
 	export let structuredText: StructuredTextFragment;
-
 	$: structuredTextFragment = fragment(
 		structuredText,
 		graphql(`
@@ -38,6 +37,6 @@
 
 <div class="max-w-2xl mx-auto">
 	<div class="prose prose-lg prose-blue" id="main-content">
-		<StructuredText data={$structuredTextFragment} components={[[isBlock, Block]]} />
+		<StructuredText data={$structuredTextFragment} components={[[isBlock, Block]]}/>
 	</div>
 </div>

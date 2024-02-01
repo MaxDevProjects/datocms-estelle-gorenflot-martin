@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { PageData } from './$houdini';
+	import { onMount } from 'svelte';
 
 	import Container from '$lib/components/Container.svelte';
 	import Header from '$lib/components/Header.svelte';
@@ -19,6 +20,7 @@
 	});
 
 	$: headTags = post && site ? post.seo.concat(site.favicon) : [];
+
 </script>
 
 <Head {headTags} />
