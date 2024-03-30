@@ -4,6 +4,8 @@
 	import PostPreview from './PostPreview.svelte';
 
 	export let posts: HomeContent$result['allPosts'] | PostContent$result['morePosts'];
+
+	console.log(posts)
 </script>
 
 <section>
