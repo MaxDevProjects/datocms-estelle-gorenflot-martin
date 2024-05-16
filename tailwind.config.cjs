@@ -4,6 +4,8 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
+				'blue': '#083757',
+				'orange': '#FFBD59',
 				'accent-1': '#FAFAFA',
 				'accent-2': '#EAEAEA',
 				'accent-7': '#333',
@@ -38,6 +40,10 @@ module.exports = {
 						}
 					}
 				}
+			},
+			fontFamily: {
+				text: 'DidactGothic',
+				title: 'KaushanScript'
 			}
 		}
 	},

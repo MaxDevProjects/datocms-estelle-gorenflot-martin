@@ -35,8 +35,11 @@
 	);
 </script>
 
-<div class="max-w-2xl mx-auto">
-	<div class="prose prose-lg prose-blue" id="main-content">
-		<StructuredText data={$structuredTextFragment} components={[[isBlock, Block]]}/>
+<div class="max-w-2xl mx-auto h-[80vh] overflow-hidden glass">
+	<div class="h-full overflow-y-scroll custom-scrollbar p-6">
+
+		<div class="prose prose-lg prose-blue text-md" id="main-content">
+			<StructuredText data={$structuredTextFragment} components={[[isBlock, Block]]}/>
+		</div>
 	</div>
 </div>

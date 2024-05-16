@@ -1,3 +1,43 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer components {
+  .glass {
+    @apply bg-white rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-50;
+  }
+}
+
+@layer base {
+    @font-face {
+      font-family: 'DidactGothic';
+      font-style: regular;
+      font-display: swap;
+      src: url(/src/lib/assets/fonts/DidactGothic-Regular.ttf) format('woff2');
+    }
+    @font-face {
+      font-family: 'KaushanScript';
+      font-style: regular;
+      font-display: swap;
+      src: url(/src/lib/assets/fonts/KaushanScript-Regular.ttf) format('woff2');
+    }
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+      width: 10px;
+  }
+   
+  /* Track */
+  .custom-scrollbar::-webkit-scrollbar-track {
+      border: 1px solid #FFBD59;
+      border-radius: 5px;
+  }
+   
+  /* Handle */
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #FFBD59;
+      border-radius: 4px;
+  }
+
+  * {
+    scroll-behavior: smooth;
+  }

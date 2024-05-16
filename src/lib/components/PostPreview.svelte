@@ -13,22 +13,25 @@
 	export let slug: string | null;
 </script>
 
-<div>
+<div class="glass">
 	{#if coverImage}
-		<div class="mb-5">
+		<div>
 			<CoverImage {slug} {title} {coverImage} />
 		</div>
 	{/if}
-	<h3 class="text-3xl mb-3 leading-snug">
-		<a href={`/posts/${slug}`} class="hover:underline">{title}</a>
-	</h3>
-	{#if date}
-		<div class="text-lg mb-4">
+	<div class="px-2">
+
+		<h3 class="text-lg font-title pt-2 leading-snug text-blue">
+			<a href={`/blog/${slug}`} class="hover:underline">{title}</a>
+		</h3>
+		{#if date}
+		<div class="text-sm font-text text-orange py-2">
 			<Date dateString={date} />
 		</div>
-	{/if}
-	<p class="text-lg leading-relaxed mb-4">{excerpt}</p>
-	{#if author}
-		<Avatar {author} />
-	{/if}
-</div>
+		{/if}
+		<!-- <p class="text-lg leading-relaxed mb-4">{excerpt}</p>
+			{#if author}
+			<Avatar {author} />
+			{/if} -->
+		</div>
+	</div>

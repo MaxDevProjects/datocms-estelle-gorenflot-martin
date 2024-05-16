@@ -14,19 +14,17 @@
 
 <PostTitle>{title}</PostTitle>
 
-{#if author}
+<!-- {#if author}
 	<div class="hidden md:block md:mb-12">
 		<Avatar {author} />
 	</div>
-{/if}
+{/if} -->
 
 {#if coverImage}
-	<div class="mb-8 md:mb-16 -mx-5 sm:mx-0">
-		<CoverImage {title} {coverImage} />
-	</div>
+	<CoverImage {title} {coverImage} />
 {/if}
 
-<div class="max-w-2xl mx-auto">
+<!-- <div class="max-w-2xl mx-auto">
 	{#if author}
 		<div class="block md:hidden mb-6">
 			<Avatar {author} />
@@ -37,4 +35,4 @@
 			<Date dateString={date} />
 		</div>
 	{/if}
-</div>
+</div> -->

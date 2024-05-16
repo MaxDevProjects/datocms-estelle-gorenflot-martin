@@ -1,10 +1,10 @@
-query PostContent($slug: String) {
+query BlogContent($slug: String) {
 	site: _site {
 		favicon: faviconMetaTags {
 			attributes
 			content
 			tag
-		}
+		}	
 	}
 
 	post(filter: { slug: { eq: $slug } }) {
@@ -30,7 +30,7 @@ query PostContent($slug: String) {
 		}
 	}
 
-	morePosts: allPosts(orderBy: date_DESC, first: 2, filter: { slug: { neq: $slug } }) {
+	posts: allPosts(orderBy: date_DESC, filter: { slug: { neq: $slug } }) {
 		title
 		slug
 		excerpt
