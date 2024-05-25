@@ -9,7 +9,7 @@
 {#if $isOpenNewslettersModal}
 <Modal/>
 {/if}
-<header class="z-[1000] flex w-full mb-4 justify-between justify-items-center items-center sticky top-0 overflow-hidden px-8 glass from-white to-transparent bg-gradient-to-b ">
+<header class="z-[1000] flex w-full justify-between justify-items-center items-center sticky top-0 overflow-hidden px-8 glass from-white to-transparent bg-gradient-to-b ">
   <Intro/>
 
   <div class="flex nowrap justify-center items-center gap-2">

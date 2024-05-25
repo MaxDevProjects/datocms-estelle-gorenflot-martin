@@ -1,23 +1,31 @@
 <script lang="ts">
-    import {onMount} from 'svelte';
-    export let summaryItems: { id: string, content: string }[];
-   
+    export let summaryItems: { id: string, content: string }[];    
 </script>
 
-<aside class="h-full">
-    <ul class="flex flex-col gap-2">
+
+<div class="w-full" id="summary">
+    <ul class="w-full flex flex-row gap-2 overflow-x-auto justify-around items-center">
         <li class="hover:glass p-2">
             <a class="block w-full font-text text-blue text-lg p-2" href="#main-content">
                 Introduction
             </a>
         </li>
         {#each summaryItems as item}
-            <li class="hover:glass p-2">
+            <li class="hover:glass p-2 w-full flex">
                 <a class="block w-full font-text text-blue text-lg p-2" href="#{item.id}">
                     {item.content}
                 </a>
             </li>
         {/each}
     </ul>
-</aside>
+</div>
 
+<style>
+   .visible {
+        display: block;
+    }
+    
+   .hidden {
+        display: none;
+    }
+</style>

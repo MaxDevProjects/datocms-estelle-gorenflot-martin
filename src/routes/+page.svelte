@@ -14,20 +14,20 @@
 	export let data: PageData;
 
 	$: ({ HomeContent } = data);
-	$: ({ allPosts, site, blog } = $HomeContent.data || {
-		allPosts: [],
+	$: ({  site, blog ,allPosts } = $HomeContent.data || {
+		blog: null,
 		site: null,
-		blog: null
+		allPosts: []
 	});
 
-	$: posts = allPosts;
-	console.log(posts)
+	$: articles = allPosts.map((post: object) => post);
 	$: headTags = blog && site ? blog.seo.concat(site.favicon) : [];
-	$: articles = posts.map((post: object) => post);
-
+	
 	let currentIndex = 0;
     
     let interval = setInterval(() => {
+		console.log(articles);
+		
         currentIndex = (currentIndex + 1) % articles.length;
     }, 5000);
 
@@ -40,11 +40,13 @@
 
 <Head {headTags} />
 
-<HeroBanner/>
-
-<div>
-    <div>
-		{#each articles as {title, slug}, index}    
+<div  in:fade={{ duration: 600 }}  out:fade={{ delay: 200, duration: 600 }}>
+	<HeroBanner/>
+</div>
+	
+	<div>
+		<div>
+			{#each articles as article, index}    
 		<div  in:fade|global={{ duration: index*5000, delay: 1000, easing: cubicInOut }}>
 		  <BottomNotification title={CurrentArticle.title} slug={CurrentArticle.slug}/>
 		</div>
@@ -52,4 +54,6 @@
 	</div>
 </div>
 
-<Menu size=132/>
+<div in:fade={{ delay: 500, duration: 300 }} out:fade={{ duration: 400 }}>
+	<Menu size=132/>
+</div>

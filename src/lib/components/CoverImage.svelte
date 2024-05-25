@@ -30,10 +30,10 @@
 	);
 </script>
 
-<div class="{isPostPage ? 'flex inset-0 h-full w-full rounded-md' : 'flex inset-0 w-screen h-screen fixed h-screen w-full z-[-1] blur-md opacity-50 '}">
+<div class="{isPostPage ? 'flex inset-0 h-full w-full rounded-md' : 'flex inset-0 w-screen h-screen fixed h-screen w-full z-[-1] blur-lg opacity-50 '}">
 	<Image
 		data={{
-			...$coverImageFragment.responsiveImage,
+			...$coverImageFragment?.responsiveImage,
 			alt: `Cover Image for ${title}`,
 		}}
 		class="{isPostPage ? 'w-full h-full rounded-md' : 'h-screen w-screen'}"

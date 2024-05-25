@@ -9,7 +9,7 @@ export const menuList = readable([
         {
             title: "Services",
             slug: "/services",
-            enabled: false
+            enabled: true
         },
         {
             title: "About",

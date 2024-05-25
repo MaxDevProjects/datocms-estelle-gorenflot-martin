@@ -6,7 +6,7 @@
     export let size = 100;
 
 </script>
-<div class=" glass z-10 absolute h-screen top-0 end-0 px-16 flex flex-col justify-center text-center items-center w-full sm:w-1/2 lg:w-1/3 gap-4 end-0 lg:end-16 ">
+<div class=" glass z-10 fixed h-screen top-0 end-0 px-16 flex flex-col justify-center text-center items-center w-full sm:w-1/2 lg:w-1/3 gap-4 end-0 lg:end-16 ">
     <h1 class="text-6xl text-blue font-title">Estelle Gorenflot Martin</h1>
     <Logo size="{size}"  on:click={() => isOpenMenu.set(false)}/>
     {#if $menuList.length > 0}

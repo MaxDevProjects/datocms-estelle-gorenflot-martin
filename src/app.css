@@ -5,6 +5,12 @@
   .glass {
     @apply bg-white rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-50;
   }
+  p, span, a, button {
+    @apply text-blue font-text;
+  }
+  h1, h2, h3, h4, h5, h2 > strong {
+    @apply text-blue font-title; 
+  }
 }
 
 @layer base {
@@ -22,22 +28,29 @@
     }
   }
 
-  .custom-scrollbar::-webkit-scrollbar {
+  html::-webkit-scrollbar {
       width: 10px;
   }
    
   /* Track */
-  .custom-scrollbar::-webkit-scrollbar-track {
+  html::-webkit-scrollbar-track {
       border: 1px solid #FFBD59;
       border-radius: 5px;
   }
    
   /* Handle */
-  .custom-scrollbar::-webkit-scrollbar-thumb {
+  html::-webkit-scrollbar-thumb {
       background: #FFBD59;
       border-radius: 4px;
   }
 
   * {
     scroll-behavior: smooth;
+  }
+
+  html {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
   }

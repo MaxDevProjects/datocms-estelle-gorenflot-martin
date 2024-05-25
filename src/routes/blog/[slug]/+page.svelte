@@ -1,12 +1,16 @@
 <script lang="ts">
 	import type { PageData } from './$houdini';
 	import { onMount, tick } from 'svelte';
+	import { fly } from 'svelte/transition';
 
 	import Header from '$lib/components/Header.svelte';
 	import PostHeader from '$lib/components/PostHeader.svelte';
 	import PostBody from '$lib/components/PostBody.svelte';
 	import Head from '$lib/components/Head.svelte';
 	import Summary from '$lib/components/Summary.svelte';
+
+	$: y = 0;
+	$: innerHeight = 0;
 
 	export let data: PageData;
 
@@ -56,33 +60,37 @@
 			'id': h2.id
 		}));
 		let h1Box = document.querySelector('#the-title');
-		h1OffsetHeight = h1Box?.offsetHeight || 0;	})
+		h1OffsetHeight = h1Box?.offsetHeight || 0;		
+	})
+
+	console.log(y);
+	$: postBodyClasses = y >= innerHeight -headerOffsetHeight ? 'bg-white px-12 py-4' : 'lg:my-16 md:my-12 sm:my-8 lg:mx-16 md:mx-12 sm:mx-8 px-4 py-4 glass';
 
 </script>
 
 <Head {headTags} />
-
-<Header />
-<section class="grid grid-cols-1 md:grid-cols-[0.35fr_0.65fr] gap-2 px-4 overflow-hidden">
-
-	<div class="h-[80vh]">
+<svelte:window bind:scrollY={y} bind:innerHeight={innerHeight}/>
+<div class="fixed top-0 z-[10000]">{y}===>{innerHeight}</div>
+<div class="h-screen">
+	<Header />
+	<section>
+	<article class="relative">
 		<PostHeader
-		title={post.title}
-		coverImage={post.coverImage}
-		date={post.date}
-		author={post.author}
+		title={post?.title}
+		coverImage={post?.coverImage}
+		date={post?.date}
+		author={post?.author}
 		/>
-		<div class="overflow-y-scroll custom-scrollbar" style="height: calc(80vh - {h1OffsetHeight}px);">
-			<Summary summaryItems={summaryItems}/>
-		</div>
-	</div>
-	<article>
 		{#if post}
-
 			{#if post.content}
-				<PostBody structuredText={post.content} />
+				{#if y >= innerHeight + headerOffsetHeight}
+					<div class="overflow-y-scroll sticky top-0 bg-white z-10" transition:fly={{ y: -200, duration: 250 }}>
+						<Summary summaryItems={summaryItems}/>
+					</div>
+				{/if}
+				<PostBody structuredText={post.content} classes={postBodyClasses}/>
 			{/if}
 		{/if}
 	</article>
 </section>
-	
+</div>

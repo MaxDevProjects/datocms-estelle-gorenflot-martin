@@ -1,10 +1,10 @@
-query BlogContent($slug: String) {
+query ServiceContent($slug: String) {
 	site: _site {
 		favicon: faviconMetaTags {
 			attributes
 			content
 			tag
-		}	
+		}
 	}
 
 	post(filter: { slug: { eq: $slug } }) {
@@ -25,21 +25,5 @@ query BlogContent($slug: String) {
 		coverImage {
 			...ImageFragment
 		}
-		author {
-			...AuthorFragment
-		}
-	}
-
-	posts: allPosts(orderBy: date_DESC, filter: { slug: { neq: $slug },  category: {eq: "A1jn-YRUQdGUsH0MFKz0tA"} }) {
-		title
-		slug
-		excerpt
-		date
-		coverImage {
-			...ImageFragment
-		}
-		author {
-			...AuthorFragment
-		}
-	}
+}
 }

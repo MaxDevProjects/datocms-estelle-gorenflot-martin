@@ -16,7 +16,7 @@
 <div class="glass">
 	{#if coverImage}
 		<div>
-			<CoverImage {slug} {title} {coverImage} />
+			<CoverImage slug={slug} title={title} coverImage={coverImage} />
 		</div>
 	{/if}
 	<div class="px-2">

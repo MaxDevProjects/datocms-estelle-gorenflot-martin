@@ -3,6 +3,9 @@ module.exports = {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
 		extend: {
+			transitionProperty: {
+				'spacing': 'margin, padding',
+			  },
 			colors: {
 				'blue': '#083757',
 				'orange': '#FFBD59',

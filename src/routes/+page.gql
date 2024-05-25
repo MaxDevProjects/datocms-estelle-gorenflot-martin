@@ -15,16 +15,10 @@ query HomeContent {
 		}
 	}
 
-	allPosts(orderBy: date_DESC, first: 20) {
+	allPosts: allPosts(orderBy: date_DESC, filter: { category: {eq: "A1jn-YRUQdGUsH0MFKz0tA"} }) {
 		title
 		slug
 		excerpt
 		date
-		coverImage {
-			...ImageFragment
-		}
-		author {
-			...AuthorFragment
-		}
 	}
 }

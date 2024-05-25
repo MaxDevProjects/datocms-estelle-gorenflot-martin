@@ -1,7 +1,7 @@
 {
-	"name": "SvelteKit Blog",
-	"description": "Simple blog website built with SvelteKit and DatoCMS.",
-	"previewImage": "https://www.datocms-assets.com/205/1605198221-screenshot2020-11-12-next-js-blog-example-with-datocms-1.jpg?crop=top&fit=crop&h=500&w=600&auto=format",
+	"name": "Estelle Gorenflot Martin - experte en gestion et organisation",
+	"description": "Découvre mes conseils et astuces pour reprendre le contrôle de ton temps, de ton budget et de tes projets",
+	"previewImage": "",
 	"datocmsProjectId": "23796",
 	"deploymentType": "static",
 	"buildCommand": "npm run build",

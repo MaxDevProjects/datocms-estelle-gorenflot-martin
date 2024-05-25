@@ -7,6 +7,8 @@
 
 	import Block from './StructuredText/nodes/Block.svelte';
 
+	export let classes: string = '';
+
 	export let structuredText: StructuredTextFragment;
 	$: structuredTextFragment = fragment(
 		structuredText,
@@ -35,11 +37,8 @@
 	);
 </script>
 
-<div class="max-w-2xl mx-auto h-[80vh] overflow-hidden glass">
-	<div class="h-full overflow-y-scroll custom-scrollbar p-6">
-
-		<div class="prose prose-lg prose-blue text-md" id="main-content">
-			<StructuredText data={$structuredTextFragment} components={[[isBlock, Block]]}/>
-		</div>
+<div class=" {classes ? classes : ''}" style="transition: all 300ms ease-out;">
+	<div class=" prose-lg prose-blue text-md w-full" id="main-content">
+		<StructuredText data={$structuredTextFragment} components={[[isBlock, Block]]}/>
 	</div>
 </div>
